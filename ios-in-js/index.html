@@ -3,6 +3,21 @@
 
 <head>
     <title>iOS Mock</title>
+    <style>
+        /* Define the styles for the status bar icons */
+        .status-bar-icon {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            margin-right: 4px;
+        }
+        .signal-strength {
+            background: url(signal.png) no-repeat center;
+        }
+        .battery {
+            background: url(battery.png) no-repeat center;
+        }
+    </style>
     <script>
         // Create a div element to represent the iOS device
         const iOSDevice = document.createElement('div');
@@ -15,6 +30,22 @@
         const statusBar = document.createElement('div');
         statusBar.style.height = '20px'; // Set the height to match the iOS status bar
         statusBar.style.backgroundColor = 'black'; // Set the background color to black
+        statusBar.style.display = 'flex'; // Use flexbox layout
+        statusBar.style.justifyContent = 'space-between'; // Align icons to the right
+        statusBar.style.alignItems = 'center';
+        statusBar.style.padding = '0px 10px'; // Add some padding to the status bar
+
+        // Create a div element to represent the signal strength icon
+        const signalStrength = document.createElement('div');
+        signalStrength.classList.add('status-bar-icon', 'signal-strength');
+
+        // Create a div element to represent the battery icon
+        const battery = document.createElement('div');
+        battery.classList.add('status-bar-icon', 'battery');
+
+        // Add the signal strength icon and battery icon to the status bar
+        statusBar.appendChild(signalStrength);
+        statusBar.appendChild(battery);
 
         // Add the status bar to the iOS device
         iOSDevice.appendChild(statusBar);
@@ -36,5 +67,4 @@
 
 <body>
 </body>
-
 </html>
